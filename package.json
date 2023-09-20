@@ -1,0 +1,21 @@
+{
+  "name": "node-aws-metadata",
+  "version": "1.0.0",
+  "description": "Library to fetch aws metadata for the application running on EC2 instances in AWS",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "Meta",
+    "Data",
+    "AWS",
+    "Node",
+    "EC2"
+  ],
+  "author": "Nitesh Vishwakarma",
+  "license": "ISC"
+}
