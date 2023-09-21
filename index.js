@@ -1,3 +1,3 @@
 'use strict';
 
-export { default } from "./lib/AWSMetaData.js";
+module.exports = require("./lib/AWSMetaData.js");

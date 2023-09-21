@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Library to fetch aws metadata for the application running on EC2 instances in AWS",
   "main": "index.js",
-  "type": "module",
+  "type": "commonjs",
   "repository": "NiteshVishwakarma896/node-aws-metadata",
   "directories": {
     "lib": "lib"

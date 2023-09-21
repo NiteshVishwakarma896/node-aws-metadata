@@ -29,7 +29,7 @@ npm install --save node-aws-metadata
 ## Usage
 
 ```jsx
-import AWSMetaData from 'node-aws-metadata';
+const AWSMetaData = require('node-aws-metadata');
 
 const getInstanceData = async() =>{
     const _aws_metadata = new AWSMetaData();
