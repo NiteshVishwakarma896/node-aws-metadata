@@ -1,4 +1,5 @@
 import http from 'http';
+import fetch from 'node-fetch';
 
 export const makeHttpRequestAndReturnText = (hostname, path, callback) => {
   const options = {
@@ -28,4 +29,10 @@ export const makeHttpRequestAndReturnText = (hostname, path, callback) => {
   });
 
   request.end();
+}
+
+export const makeFetchRequestAndReturnText = async (hostname,path) =>{
+  let response = await fetch(`${hostname}${path}`);
+  let data = response.text();
+  return data;
 }
