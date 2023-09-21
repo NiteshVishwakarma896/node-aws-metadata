@@ -30,9 +30,3 @@ export const makeHttpRequestAndReturnText = (hostname, path, callback) => {
 
   request.end();
 }
-
-export const makeFetchRequestAndReturnText = async (hostname,path) =>{
-  let response = await fetch(`${hostname}${path}`);
-  let data = response.text();
-  return data;
-}
