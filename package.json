@@ -20,6 +20,6 @@
   "author": "Nitesh Vishwakarma",
   "license": "ISC",
   "dependencies": {
-    "node-fetch": "^3.3.2"
+    "axios": "^1.5.0"
   }
 }

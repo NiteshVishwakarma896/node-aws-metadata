@@ -1,34 +1,19 @@
-import http from 'http';
+import axios from 'axios';
 
-export const makeHttpRequestAndReturnText = (hostname, path) => {
-  return new Promise((resolve, reject) => {
-    const options = {
-      hostname: hostname,
-      path: path,
-      method: 'GET',
-    };
+export const makeHttpRequestAndReturnData = async(hostname, path) => {
+  try {
+    let instanceMetadataUrl = hostname+path;
+    const response = await axios.get(instanceMetadataUrl);
+    const metadata = response.data.split('\n');
+    
+    // console.log('AWS Instance Metadata:');
+    // metadata.forEach(item => {
+    //   console.log(item);
+    // });
 
-    const request = http.request(options, (response) => {
-      let responseText = '';
-      response.on('data', (chunk) => {
-        responseText += chunk;
-      });
-
-      response.on('end', () => {
-        if (response.statusCode === 200) {
-          resolve(responseText);
-        } 
-        else {
-          const error = (new Error(`Request failed with status code ${response.statusCode}`));
-          reject(error);
-        }
-      });
-    });
-
-    request.on('error', (error) => {
-      reject(error);
-    });
-
-    request.end();
-  });
+    return metadata;
+  } catch (error) {
+    console.error('Error fetching AWS metadata:', error);
+    throw error; 
+  }
 }
