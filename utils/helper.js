@@ -1,5 +1,4 @@
 import http from 'http';
-import fetch from 'node-fetch';
 
 export const makeHttpRequestAndReturnText = (hostname, path, callback) => {
   const options = {
