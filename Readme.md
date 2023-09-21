@@ -25,7 +25,6 @@ npm install --save node-aws-metadata
 <p>/tags/instance/Name</p>
 <p>/tags/instance/Environment</p>
 <br/>
-<br/>
 
 ## Usage
 
