@@ -1,6 +1,6 @@
 import http from 'http';
 
-export const makeHttpRequestAndReturnText = (hostname, path, callback) => {
+export const makeHttpRequestAndReturnText = (hostname, path) => {
   return new Promise((resolve, reject) => {
     const options = {
       hostname: hostname,
@@ -17,7 +17,8 @@ export const makeHttpRequestAndReturnText = (hostname, path, callback) => {
       response.on('end', () => {
         if (response.statusCode === 200) {
           resolve(responseText);
-        } else {
+        } 
+        else {
           const error = (new Error(`Request failed with status code ${response.statusCode}`));
           reject(error);
         }
