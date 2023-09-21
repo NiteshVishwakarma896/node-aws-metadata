@@ -1,31 +1,33 @@
 import http from 'http';
 
 export const makeHttpRequestAndReturnText = (hostname, path, callback) => {
-  const options = {
-    hostname: hostname,
-    path: path,
-    method: 'GET',
-  };
+  return new Promise((resolve, reject) => {
+    const options = {
+      hostname: hostname,
+      path: path,
+      method: 'GET',
+    };
 
-  const request = http.request(options, (response) => {
-    let responseText = '';
-    response.on('data', (chunk) => {
-      responseText += chunk;
+    const request = http.request(options, (response) => {
+      let responseText = '';
+      response.on('data', (chunk) => {
+        responseText += chunk;
+      });
+
+      response.on('end', () => {
+        if (response.statusCode === 200) {
+          resolve(responseText);
+        } else {
+          const error = (new Error(`Request failed with status code ${response.statusCode}`));
+          reject(error);
+        }
+      });
     });
 
-    response.on('end', () => {
-      if (response.statusCode === 200) {
-        callback(null, responseText);
-      } else {
-        const error = (new Error(`Request failed with status code ${response.statusCode}`));
-        callback(error);
-      }
+    request.on('error', (error) => {
+      reject(error);
     });
-  });
 
-  request.on('error', (error) => {
-    callback(error);
+    request.end();
   });
-
-  request.end();
 }
