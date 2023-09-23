@@ -10,10 +10,17 @@ Instance metadata is divided into categories. For a description of each instance
 </p>
 
 [![NPM](https://img.shields.io/npm/v/node-aws-metadata.svg)](https://www.npmjs.com/package/node-aws-metadata) 
-[![NPM Install Size][npm-install-size-image]][npm-install-size-url]
+![npm bundle size](https://img.shields.io/bundlephobia/min/node-aws-metadata)
+![npm](https://img.shields.io/npm/dw/node-aws-metadata)
 [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
-## Install
+## Installation
+
+This is a [Node.js](https://nodejs.org/en/) module available through the
+[npm registry](https://www.npmjs.com/package/node-aws-metadata).
+
+Before installing, [download and install Node.js](https://nodejs.org/en/download/).
+Node.js 12 or higher is required.
 
 ```bash
 npm install --save node-aws-metadata
@@ -68,10 +75,17 @@ const getInstanceAllMetaData = async() =>{
 }
 ```
 ## Outputs
->getInstanceMetaData('ami-id') : 
+
+<p>
+Output displayed below will have same format, content might defer below content for response is not shown.
+</p>
+</br>
+
+> getInstanceMetaData('ami-id') : 
+
 ```json
 { 
-    'ami-id': 'ami-1234567890-1243' 
+    'ami-id': 'amazon-linux-image-id' 
 }
 ```
 <br/>
@@ -79,20 +93,20 @@ const getInstanceAllMetaData = async() =>{
 >getInstanceAvailableMetaData()
 ```json
 {
-  'ami-id': 'ami-0123456789-12',
-  'ami-launch-index': 0,
+  'ami-id': '',
+  'ami-launch-index': ,
   'ami-manifest-path': '',
-  'hostname': 'ip-123-445-677.us-west-1.compute.internal',
-  'instance-action': 'none',
-  'instance-id': 'i-08157b014b8620ca8',
+  'hostname': '',
+  'instance-action': '',
+  'instance-id': '',
   'instance-type': 't2.micro',
-  'local-hostname': 'ip-123-445-677.us-west-1.compute.internal',
-  'local-ipv4': '123.123.122.167',
-  'profile': 'default-hvm',
-  'public-hostname': 'ec2-123-445-677.us-west-1.compute.amazonaws.com',
-  'public-ipv4': '123.111.48.124',
-  'placement/availability-zone': 'us-west-1b',
-  'placement/availability-zone-id': 'usw1-az1',
+  'local-hostname': '',
+  'local-ipv4': '',
+  'profile': '',
+  'public-hostname': '',
+  'public-ipv4': '',
+  'placement/availability-zone': 'us-west-1',
+  'placement/availability-zone-id': '',
   'placement/region': 'us-west-1'
 }
 ```
