@@ -5,9 +5,9 @@ module.exports = {
     try {
       let instanceMetadataUrl = hostname+path;
       const response = await axios.get(instanceMetadataUrl);
-      const metadata = JSON.parse(response.data.split('\n'));
+      const metadata = response.data.split('\n');
       return result = {
-        [key]: metadata
+        [key]: metadata[0]
       };
     } catch (error) {
       throw error; 
