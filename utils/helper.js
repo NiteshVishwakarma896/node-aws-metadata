@@ -1,19 +1,22 @@
 const axios = require('axios');
 
 module.exports = {
-  async makeHttpRequestAndReturnData(hostname, path){
+  async makeHttpRequestAndReturnData(hostname, path,key){
     try {
       let instanceMetadataUrl = hostname+path;
       const response = await axios.get(instanceMetadataUrl);
-      const metadata = response.data.split('\n');
-      return metadata;
+      const metadata = JSON.parse(response.data);
+      return result = {
+        [key]: metadata
+      };
     } catch (error) {
       throw error; 
     }
   },
   async makeHttpRequestAndReturnAllMetaData(hostname, path,avaliable_services){
-    const urls = avaliable_services.map((e)=>{
-      return {[e]:`${hostname}${path}/${e}`};
+    const urls = {};
+    avaliable_services.map((e)=>{
+      urls[e]=`${hostname}${path}/${e}`
     })
     try {
       const responses = await Promise.all(Object.entries(urls).map(([key, url]) => axios.get(url).then(response => [key, response.data])));
