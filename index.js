@@ -4,7 +4,7 @@ const AWSMetaData = require('./lib/AWSMetaData');
 async function main() {
     try {
         const _aws_metadata = new AWSMetaData();
-        const metadata = await _aws_metadata.getInstanceAvailableMetaData();
+        const metadata = await _aws_metadata.getInstanceMetaData('ami-id');
         console.log(metadata)
     } catch (error) {
         console.log(error);
