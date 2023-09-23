@@ -13,11 +13,12 @@ module.exports = {
   },
   async makeHttpRequestAndReturnAllMetaData(hostname, path,avaliable_services){
     const urls = avaliable_services.map((e)=>{
-      return `${hostname}${path}/${e}`;
+      return {[e]:`${hostname}${path}/${e}`};
     })
     try {
-      const responses = await Promise.all(urls.map(url => axios.get(url)));
-      return responses.map(response => response.data);
+      const responses = await Promise.all(Object.entries(urls).map(([key, url]) => axios.get(url).then(response => [key, response.data])));
+      const responseData = Object.fromEntries(responses);
+      return responseData;
     } catch (error) {
       throw error;
     }
