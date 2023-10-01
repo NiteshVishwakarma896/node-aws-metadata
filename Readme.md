@@ -11,7 +11,7 @@ Instance metadata is divided into categories. For a description of each instance
 
 [![NPM](https://img.shields.io/npm/v/node-aws-metadata.svg)](https://www.npmjs.com/package/node-aws-metadata) 
 ![npm bundle size](https://img.shields.io/bundlephobia/min/node-aws-metadata)
-![npm](https://img.shields.io/npm/dw/node-aws-metadata)
+![npm](https://img.shields.io/npm/dt/node-aws-metadata)
 [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
 ## Installation
